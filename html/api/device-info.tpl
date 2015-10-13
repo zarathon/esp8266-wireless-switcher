@@ -1,1 +1,1 @@
-{"Name":"Kitchen power switcher","IP":"%IP%"}
+{"Nome":"SmartLamp Protótipo Funcional","IP":"%IP%"}

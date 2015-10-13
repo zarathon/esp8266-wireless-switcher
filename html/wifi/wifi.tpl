@@ -1,5 +1,15 @@
-<html><head><title>WiFi connection</title>
+<html>
+  <head>
+      <title>SmartHome - SmartLamp</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
 <link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.blue_grey-blue.min.css" />
+<script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 <script type="text/javascript" src="140medley.min.js"></script>
 <script type="text/javascript">
 
@@ -62,29 +72,29 @@ window.onload=function(e) {
 </head>
 <body>
 <div id="main">
-    <h1>Welcome to home automation interface</h1>
-    <div id="menu">
-        <ul>
-            <li><a href="/index.tpl">Device Info</a></li>
-            <li><a href="/gpio02.tpl">GPIO02</a></li>
-            <li class="active"><a href="/wifi">WLAN settings.</a></li>
-        </ul>
-    </div>
+	<h1>SmartHome - SmartLamp</h1>
+	<div id="menu">
+			<ul>
+					<li><a href="index.tpl">Informação da Lâmpada</a></li>
+					<li class="active"><a href="gpio02.tpl">Liga/Desliga</a></li>
+					<li><a href="/wifi">Configurar na sua rede local Wifi.</a></li>
+			</ul>
+	</div>
     <div id="content">
-        <p>Current WiFi mode: %WiFiMode%</p>
+        <p>Modo atual do Wifi: %WiFiMode%</p>
         <form name="wifiform" action="connect.cgi" method="post">
         <p>
-        To connect to a WiFi network, please select one of the detected networks...<br>
-        <div id="aps">Scanning...</div>
+        Para conectar a SmartLamp a sua rede Wifi, escolha ela na lista abaixo...<br>
+        <div id="aps">Procurando...</div>
         <br>
-        WiFi password, if applicable: <br />
+        Senha do Wifi (se tiver): <br />
         <input type="text" name="passwd" val="%WiFiPasswd%"> <br />
-        <input type="submit" name="connect" value="Connect!">
+        <input type="submit" name="connect" value="Conectar!">
         </p>
     </div>
     <div class="clear"></div>
-    <div class="footer">
-        <p align="right">by <a href="http://www.extragsm.com" target="_blank">ExtraGSM</a></p>
+		<div class="footer">
+        <p align="right">Desenvolvido por: <a href="http://www.fabricaguaiamum.com.br" target="_blank">Guaiamum</a></p>
     </div>
 </div>
 </body>

@@ -3,7 +3,6 @@ body {
     font-family: Arial, sans-serif;
 }
 a {color: #2954a3; text-decoration: none;}
-a:hover {text-decoration: underline;}
 h1{font-size: 19px; padding-left: 200px;}
 #main {
     width: 800px;

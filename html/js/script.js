@@ -30,7 +30,7 @@ switch(page) {
             }
         };
         xmlhttp.send();
-        
+
         onButton = document.getElementById('on-button');
         onButton.onclick = function() {
             xmlhttp.open("POST","gpio02.cgi", true);
