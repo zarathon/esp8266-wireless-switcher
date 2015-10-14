@@ -5,11 +5,11 @@ Cgi/template routines for the /wifi url.
 /*
  * ----------------------------------------------------------------------------
  * "THE BEER-WARE LICENSE" (Revision 42):
- * Jeroen Domburg <jeroen@spritesmods.com> wrote this file. As long as you retain 
- * this notice you can do whatever you want with this stuff. If we meet some day, 
- * and you think this stuff is worth it, you can buy me a beer in return. 
- * 
- * Razvan Dubau <dubau_razvan@yahoo.com> modified some of the files. So you can give 
+ * Jeroen Domburg <jeroen@spritesmods.com> wrote this file. As long as you retain
+ * this notice you can do whatever you want with this stuff. If we meet some day,
+ * and you think this stuff is worth it, you can buy me a beer in return.
+ *
+ * Razvan Dubau <dubau_razvan@yahoo.com> modified some of the files. So you can give
  * me a beer and 2 beers to Jeroen.
  * ----------------------------------------------------------------------------
  */
@@ -31,7 +31,7 @@ typedef struct {
 	char enc;
 } ApData;
 
-//Scan resolt
+//Scan result
 typedef struct {
 	char scanInProgress;
 	ApData **apData;
@@ -119,8 +119,8 @@ int ICACHE_FLASH_ATTR cgiWiFiScan(HttpdConnData *connData) {
 		espconn_sent(connData->conn, (uint8 *)buff, len);
 		if (cgiWifiAps.apData==NULL) cgiWifiAps.noAps=0;
 		for (i=0; i<cgiWifiAps.noAps; i++) {
-			len=os_sprintf(buff, "{\"essid\": \"%s\", \"rssi\": \"%d\", \"enc\": \"%d\"}%s\n", 
-					cgiWifiAps.apData[i]->ssid, cgiWifiAps.apData[i]->rssi, 
+			len=os_sprintf(buff, "{\"essid\": \"%s\", \"rssi\": \"%d\", \"enc\": \"%d\"}%s\n",
+					cgiWifiAps.apData[i]->ssid, cgiWifiAps.apData[i]->rssi,
 					cgiWifiAps.apData[i]->enc, (i==cgiWifiAps.noAps-1)?"":",");
 			espconn_sent(connData->conn, (uint8 *)buff, len);
 		}
@@ -172,12 +172,12 @@ int ICACHE_FLASH_ATTR cgiWiFiConnect(HttpdConnData *connData) {
 	char essid[128];
 	char passwd[128];
 	static ETSTimer reassTimer;
-	
+
 	if (connData->conn==NULL) {
 		//Connection aborted. Clean up.
 		return HTTPD_CGI_DONE;
 	}
-	
+
 	httpdFindArg(connData->postBuff, "essid", essid, sizeof(essid));
 	httpdFindArg(connData->postBuff, "passwd", passwd, sizeof(passwd));
 
@@ -218,5 +218,3 @@ void ICACHE_FLASH_ATTR tplWlan(HttpdConnData *connData, char *token, void **arg)
 	}
 	espconn_sent(connData->conn, (uint8 *)buff, os_strlen(buff));
 }
-
-
